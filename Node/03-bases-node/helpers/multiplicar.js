@@ -1,36 +1,35 @@
 
-const fs = require('fs');
-const { normalize } = require('path');
+const fs = require( 'fs' );
+const colors = require( 'colors') 
 
 
-const crearArchivo = async( base, listar ) => {
-    let nombreArchivo = `tabla-${ base }.txt`
+const crearArchivo = async( base, listar, limite ) => {
+    let nombreArchivo = `tabla-${ base }-hasta-${ limite }.txt`
     
     try {
-        console.log('==============');
-        console.log(`Tabla del: ${base}`);
-        console.log('==============');
+        console.log(('============================').green);
+        console.log('   Tabla del:' + ` ${base}`.cyan.italic + ` hasta: ${ limite }`);
+        console.log('============================'.green);
 
         let salida = '';
-        for(let i = 1; i <= 10; i ++){
+        let consola = '';
+
+        for(let i = 1; i <= limite; i ++){
             salida += `${ base } x ${ i } = ${ base * i }\n`;
+            consola += `${ base } ${'x'.red} ${ i } = ${ base * i }\n`;
         }
-        
+
         if (listar) {
-            console.log( salida );
+            console.log( consola );
         }
         
-        fs.writeFile( nombreArchivo, salida, (err) => {
+        fs.writeFile( `./salida/${ nombreArchivo }`, salida, (err) => {
             if (err) throw err;
-            console.log('The file has been saved!');
+            console.log('The file has been saved!'.yellow);
         });
     } catch (error) {
         throw error
     }
-
-    // ( nombreArchivo )
-    //     ? resolve( nombreArchivo )
-    //     : reject(`ATENCION: No se pudo escribir el archivo.`)
 
     return ( nombreArchivo )
     
