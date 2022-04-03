@@ -12,6 +12,14 @@ class Tarea {
         this.completadoEn = null;
     }
 
+    set setId ( id ) {
+        this.id = id;
+    }
+
+    set setCompletadoEn( completedAt ){
+        this.completadoEn = completedAt;
+    }
+
 }
 
 module.exports = Tarea;
