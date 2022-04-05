@@ -1,7 +1,7 @@
 require('colors');
 
 const { guardarDB, leerDB } = require('./helpers/interaccionDB');
-const { inquireMenu, pausa, leerInput } = require('./helpers/inquirer');
+const { inquireMenu, pausa, leerInput, listadoOpcionesBorrar } = require('./helpers/inquirer');
 const Tareas = require('./models/tareas');
 
 
@@ -36,6 +36,10 @@ const main = async() => {
             case '4':
                 tareas.listarPendientesCompletadas(false);
             break;
+
+            case '6':
+                const id = await listadoOpcionesBorrar(tareas.listadoArr);
+                tareas.borrarTarea(id);
 
         }
 
