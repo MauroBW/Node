@@ -1,7 +1,7 @@
 require('colors');
 
 const { guardarDB, leerDB } = require('./helpers/interaccionDB');
-const { inquireMenu, pausa, leerInput, listadoOpcionesBorrar } = require('./helpers/inquirer');
+const { inquireMenu, pausa, leerInput, listadoOpcionesBorrar, confirmarBorrado, mostrarListadoChecklist } = require('./helpers/inquirer');
 const Tareas = require('./models/tareas');
 
 
@@ -37,9 +37,20 @@ const main = async() => {
                 tareas.listarPendientesCompletadas(false);
             break;
 
+            case '5':
+                const selecciones = await mostrarListadoChecklist(tareas.listadoArr);
+                console.log(selecciones);
+            break;
+
             case '6':
-                const id = await listadoOpcionesBorrar(tareas.listadoArr);
-                tareas.borrarTarea(id);
+                const id = await listadoOpcionesBorrar(this.listadoArr);
+                const confirm = await confirmarBorrado('Seguro que desea eliminar?');
+                if (confirm){
+                    tareas.borrarTarea(id);
+                    console.log('\nTarea borrada'.yellow);
+                }
+                
+                // tareas.borrarTarea(id);
 
         }
 
