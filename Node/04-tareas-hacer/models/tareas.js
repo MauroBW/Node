@@ -89,6 +89,15 @@ class Tareas {
         this.imprimir(resultante);
     }
 
+    cambiarEstadoTareas( ids = [] ) {
+        ids.forEach( id => {
+            if(! this._listado[id].completadoEn ){
+                console.log(this._listado[id]);
+                this._listado[id].completadoEn = 'Completado';
+            }
+        } )
+    }
+
 
 }
 

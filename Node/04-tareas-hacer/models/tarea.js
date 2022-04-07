@@ -11,6 +11,10 @@ class Tarea {
         this.desc = desc;
         this.completadoEn = null;
     }
+
+    set setEstado( estado ) {
+        this.completadoEn = estado;
+    }
 }
 
 module.exports = Tarea;

@@ -40,6 +40,8 @@ const main = async() => {
             case '5':
                 const selecciones = await mostrarListadoChecklist(tareas.listadoArr);
                 console.log(selecciones);
+                tareas.cambiarEstadoTareas(selecciones)
+                console.log(tareas.listadoArr);
             break;
 
             case '6':
