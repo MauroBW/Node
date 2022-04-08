@@ -2,20 +2,42 @@ const axios = require('axios');
 
 class Busquedas {
 
-    historial  = ['Montevideo', 'Madrid'];
+    historial = ['Montevideo', 'Madrid'];
 
-    constructor () {
+    constructor() {
         // TODO: leer base de datos
     }
 
-    async ciudad( lugar = "" ){
+    get paramsMapBox() {
+        return {
+            'access_token': `${process.env.MAPBOX_KEY}`,
+            'limit': 5,
+            'language': 'es'
+        }
+    }
+
+    async ciudad(lugar = "") {
 
         // peticion http
 
-        const res = await axios.get('https://reqres.in/api/users?page=2')
-        console.log(res.data);
+        try {
+            const instance = axios.create({
+                baseURL: `https://api.mapbox.com/geocoding/v5/mapbox.places/${lugar}.json`,
+                params: this.paramsMapBox
+            });
 
-        return []; // retornar las ciudades
+
+
+            const res = await instance.get();
+            console.log(res.data);
+
+
+            return []; // retornar las ciudades
+        }
+
+        catch(error) {
+            return [];
+        }
     }
 
 }
