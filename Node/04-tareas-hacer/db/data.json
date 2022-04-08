@@ -1,1 +1,32 @@
-[{"id":"baf57c1c-d9d8-4bf5-b9a2-ef2f790b3079","desc":"Tareaaaa","completadoEn":"Completado"},{"id":"fb71232a-cdfb-4554-985f-f1ab6f7749a3","desc":"Esto es una tarea","completadoEn":"asdf"},{"id":"c00716d3-46f2-46be-8c03-8cd01e247dfe","desc":"Como hacer determinantes","completadoEn":"Completado"},{"id":"07519fc2-9cd6-4d86-ae42-e451688729ef","desc":"Propiedades de determinantes","completadoEn":null},{"id":"1d94e86d-736d-41e3-bea1-296c9ad66913","desc":"Completar ejercicio 7 y 8","completadoEn":null}]
+[
+    {
+        "id": "baf57c1c-d9d8-4bf5-b9a2-ef2f790b3079",
+        "desc": "Tareaaaa",
+        "completadoEn": "Completado"
+    },
+    {
+        "id": "fb71232a-cdfb-4554-985f-f1ab6f7749a3",
+        "desc": "Esto es una tarea",
+        "completadoEn": "asdf"
+    },
+    {
+        "id": "c00716d3-46f2-46be-8c03-8cd01e247dfe",
+        "desc": "Como hacer determinantes",
+        "completadoEn": "Completado"
+    },
+    {
+        "id": "07519fc2-9cd6-4d86-ae42-e451688729ef",
+        "desc": "Propiedades de determinantes",
+        "completadoEn": null
+    },
+    {
+        "id": "1d94e86d-736d-41e3-bea1-296c9ad66913",
+        "desc": "Completar ejercicio 7 y 8",
+        "completadoEn": null
+    }, 
+    {
+        "id": "40e53a19-873e-41a4-ab38-b4f9f15950c6",
+        "desc": "Salen unos pubg con Strawnzera",
+        "completadoEn": "Completado"
+    }
+]
