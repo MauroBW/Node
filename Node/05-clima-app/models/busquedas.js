@@ -26,18 +26,40 @@ class Busquedas {
                 params: this.paramsMapBox
             });
 
-
-
             const res = await instance.get();
-            console.log(res.data);
 
-
-            return []; // retornar las ciudades
-        }
-
-        catch(error) {
+            return res.data.features.map(lugar => ({
+                id: lugar.id,
+                nombre: lugar.place_name,
+                lng: lugar.center[0],
+                lat: lugar.center[1]
+            }));
+        } catch (error) {
             return [];
         }
+    }
+
+    async climaLugar(lat, lon) {
+
+        try {
+            const instance = axios.create({
+                baseURL: 'https://api.openweathermap.org/data/2.5/weather',
+                params: {
+                    'lat'
+                }
+            })
+
+
+        } catch (error) {
+            console.log(error);
+        }
+
+        // instance de axios
+
+        // respuesta.data
+
+        // retornar {desc, min, max, temp}
+
     }
 
 }

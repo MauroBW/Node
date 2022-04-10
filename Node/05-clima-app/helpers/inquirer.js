@@ -132,7 +132,33 @@ const mostrarListadoChecklist = async ( tareas  = []) => {
 
     const { ids } = await inquirer.prompt(preguntas);
     return ids;
+}
+
+const listarLugares = async ( lugares  = []) => {
+
+    const choices = lugares.map( (lugar, i) => {
+        const idx =  `${i + 1}.`.green;
+        return {
+                value: lugar.id,
+                name: `${ idx } ${ lugar.nombre }`
+            }
+    });
+    
+    const preguntas = [
+        {
+            type: 'list',
+            name: 'id',
+            message: 'Seleccionar ciudad',
+            choices
+        }
+    ]
+    
+    // console.log(choices);
+
+    const { id } = await inquirer.prompt(preguntas);
+    return id;
 } 
+
 
 
 module.exports = {
@@ -141,5 +167,6 @@ module.exports = {
     leerInput,
     listadoOpcionesBorrar,
     confirmarBorrado,
-    mostrarListadoChecklist
+    mostrarListadoChecklist,
+    listarLugares
 }
