@@ -10,7 +10,10 @@ app.set('view engine', 'hbs');
 app.use( express.static( 'public' ) );
 
 app.get('/', (req, res) => {
-  res.render('home')
+  res.render('home', {
+    nombre : 'Mauro Botti',
+    titulo : 'Curso Node'
+  })
 })
 
 app.get('/generic', (req, res) => {
@@ -27,6 +30,6 @@ app.get('*', (req, res) => {
 
 
 app.listen( port, () => {
-  console.log(`Server running on port:`.yellow, `${port}`.magenta);
+  console.log(`\nServer running on port:`.rainbow, `${port}`.magenta);
   console.log(`URL -> http://localhost:${port}`);
 })
