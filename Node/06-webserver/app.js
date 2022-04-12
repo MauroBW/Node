@@ -1,8 +1,32 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+require('colors');
 
-app.get('/', function (req, res) {
-  res.send('Hello World')
+const app = express();
+const port = 8080;
+
+app.set('view engine', 'hbs');
+
+
+app.use( express.static( 'public' ) );
+
+app.get('/', (req, res) => {
+  res.render('home')
 })
 
-app.listen(3000)
+app.get('/generic', (req, res) => {
+  res.sendFile(__dirname + '/public/generic.html')
+})
+
+app.get('/elements', (req, res) => {
+  res.sendFile(__dirname + '/public/elements.html')
+})
+
+app.get('*', (req, res) => {
+  res.sendFile(__dirname + '/public/404.html')
+})
+
+
+app.listen( port, () => {
+  console.log(`Server running on port:`.yellow, `${port}`.magenta);
+  console.log(`URL -> http://localhost:${port}`);
+})
